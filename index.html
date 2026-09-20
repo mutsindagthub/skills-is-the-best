@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="rw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ContentCreatorSkills - AI Creative Partner</title>
+  <meta name="description" content="AI Creative Partner for Content Creators, Musicians, Comedians, and Showbiz Industry in Kinyarwanda, Français, English, and Kiswahili.">
+  <meta property="og:title" content="ContentCreatorSkills - AI Creative Partner">
+  <meta property="og:description" content="AI Creative Partner for Content Creators, Musicians, Comedians, and Showbiz Industry in Kinyarwanda, Français, English, and Kiswahili.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Favicon SVG -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+  <!-- Pure CSS Stylesheet (Relative path for GitHub Pages and local file://) -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <div class="app-layout" id="appLayout">
+
+    <!-- Top Header -->
+    <header class="app-header" id="appHeader">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <button class="btn-secondary mobile-toggle" id="sidebarToggle" title="Toggle Categories" aria-label="Categories">
+          ☰
+        </button>
+        <a href="#" class="brand" id="brandLink">
+          <div class="brand-icon">CCS</div>
+          <div class="brand-text">
+            <h1>ContentCreatorSkills <span class="brand-badge">STUDIO</span></h1>
+            <p class="brand-sub" id="brandSub">Ubufatanye bwa AI n'abahanzi n'aba creators</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="header-actions">
+        <div class="status-badge" id="aiStatusBadge">
+          <span class="status-dot"></span>
+          <span id="statusText">AI Irakora</span>
+        </div>
+
+        <select class="select-control" id="langSelect" aria-label="Select Language">
+          <option value="rw" selected>🇷🇼 Kinyarwanda</option>
+          <option value="en">🇬🇧 English</option>
+          <option value="fr">🇫🇷 Français</option>
+          <option value="sw">🇹🇿 Kiswahili</option>
+        </select>
+
+        <button class="btn-secondary" id="btnSavedToggle" title="View Saved Scripts">
+          ⭐ <span class="hide-mobile">Ibibitswe</span>
+        </button>
+
+        <button class="btn-secondary" id="btnSettingsToggle" title="Free Hosting / API Key Settings">
+          ⚙️ <span class="hide-mobile">Settings</span>
+        </button>
+
+        <button class="btn-secondary" id="btnNewChat" style="background: rgba(99, 102, 241, 0.15); border-color: rgba(99, 102, 241, 0.35); color: #818cf8;">
+          ✨ <span>Ikiganiro Gishya</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Studio Workspace -->
+    <main class="main-workspace" id="mainWorkspace">
+
+      <!-- Left Sidebar: Categories & Creative Shortcuts -->
+      <aside class="studio-sidebar" id="sidebar">
+        <div class="sidebar-section">
+          <h3>Ibyiciro by'ibihangano</h3>
+          <nav class="category-nav">
+            <button class="category-btn active" data-cat="tiktok" id="catBtnTikTok">
+              <span class="cat-icon">📱</span>
+              <span class="cat-text">TikTok & Reels Hooks</span>
+            </button>
+            <button class="category-btn" data-cat="youtube" id="catBtnYouTube">
+              <span class="cat-icon">🎬</span>
+              <span class="cat-text">YouTube Titles & Scripts</span>
+            </button>
+            <button class="category-btn" data-cat="music" id="catBtnMusic">
+              <span class="cat-icon">🎵</span>
+              <span class="cat-text">Indirimbo & Amagambo (Lyrics)</span>
+            </button>
+            <button class="category-btn" data-cat="showbiz" id="catBtnShowbiz">
+              <span class="cat-icon">🎭</span>
+              <span class="cat-text">Showbiz & PR / Amatangazo</span>
+            </button>
+            <button class="category-btn" data-cat="monetize" id="catBtnMonetize">
+              <span class="cat-icon">💰</span>
+              <span class="cat-text">Kwinjiza Amafaranga & Brands</span>
+            </button>
+            <button class="category-btn" data-cat="strategy" id="catBtnStrategy">
+              <span class="cat-icon">📅</span>
+              <span class="cat-text">Gahunda y'Ukwezi (Calendar)</span>
+            </button>
+          </nav>
+        </div>
+
+        <div class="sidebar-section">
+          <h3>Inama z'ihuse (Quick Prompts)</h3>
+          <div class="prompt-chips">
+            <button class="prompt-chip" id="chip1">
+              🚀 "Mpa script ya TikTok y'amasegonda 30 ifite hook ikomeye cyane"
+            </button>
+            <button class="prompt-chip" id="chip2">
+              🎬 "Imitwe 5 ya YouTube ifite click-through rate iri hejuru"
+            </button>
+            <button class="prompt-chip" id="chip3">
+              🎵 "Nyandikira igitero n'inyikirizo y'indirimbo ya Afrobeat mu Kinyarwanda"
+            </button>
+            <button class="prompt-chip" id="chip4">
+              🤝 "Uburyo bwo kwandikira ikigo gusaba sponsor n'ibiciro nakwaka"
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Center / Right: Chat Feed & Studio Controls -->
+      <section class="chat-container" id="chatContainer">
+
+        <!-- Tone & Output Format Options Bar -->
+        <div class="chat-controls-bar" id="chatControlsBar">
+          <div class="controls-group">
+            <span class="control-label">Umwuka:</span>
+            <select class="pill-select" id="toneSelect">
+              <option value="viral" selected>⚡ Viral & Iguruka</option>
+              <option value="professional">💼 Professional & Ubucuruzi</option>
+              <option value="storytelling">🎭 Inkuru & Amarangamutima</option>
+              <option value="humorous">😄 Urwenya & Gusetsa</option>
+            </select>
+          </div>
+
+          <div class="controls-group">
+            <span class="control-label">Imiterere:</span>
+            <select class="pill-select" id="formatSelect">
+              <option value="full" selected>📜 Script irambuye</option>
+              <option value="bullet">📋 Ingingo z'ingenzi</option>
+              <option value="stepbystep">⏱️ Intambwe ku yindi</option>
+            </select>
+          </div>
+
+          <div class="controls-group" style="margin-left: auto;">
+            <button class="btn-icon" id="btnClearChat" title="Clear Chat History">
+              🗑️
+            </button>
+            <button class="btn-icon" id="btnExportChat" title="Export Chat to Markdown / Text">
+              📥
+            </button>
+          </div>
+        </div>
+
+        <!-- Messages Feed -->
+        <div class="messages-feed" id="messagesFeed">
+
+          <!-- Welcome Hero Screen -->
+          <div class="welcome-hero" id="welcomeHero">
+            <div class="hero-pill">
+              <span>AI YAGENEYE ABA CREATORS N'ABAHANZI</span>
+            </div>
+            <h2>Hanga ibintu bikaze, wagure abagukurikira, kora ubucuruzi.</h2>
+            <p>
+              Koresha ubushobozi bwa AI mu kwandika scripts za TikTok, imitwe ya YouTube ikurura abantu, amagambo y'indirimbo, no kuganira n'abaterankunga.
+            </p>
+
+            <div class="quick-start-grid">
+              <div class="hero-card" id="cardHook">
+                <div class="hero-card-icon">⚡</div>
+                <h4>Hook ya TikTok / Reels</h4>
+                <p>Script y'amasegonda 30 ifite igikurura abantu mu masegonda 3 ya mbere.</p>
+              </div>
+
+              <div class="hero-card" id="cardYouTube">
+                <div class="hero-card-icon">🎬</div>
+                <h4>YouTube Titles & Ideas</h4>
+                <p>Imitwe 5 y'amashusho yihuta kurebwa (high CTR) n'ingingo z'ingenzi.</p>
+              </div>
+
+              <div class="hero-card" id="cardMusic">
+                <div class="hero-card-icon">🎵</div>
+                <h4>Amagambo y'indirimbo (Lyrics)</h4>
+                <p>Igitero n'inyikirizo bifite injyana mu Kinyarwanda cyangwa uruvange.</p>
+              </div>
+
+              <div class="hero-card" id="cardSponsor">
+                <div class="hero-card-icon">💰</div>
+                <h4>Uburyo bwo gusaba sponsorship</h4>
+                <p>Ibaruwa / Email yo gusaba ubaterankunga n'ibiciro wakwaka brand.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Composer / Input Box -->
+        <div class="composer-wrapper" id="composerWrapper">
+          <div class="composer-box">
+            <textarea
+              id="composerInput"
+              class="composer-textarea"
+              rows="1"
+              placeholder="Andika icyo ukeneye hano... (Kanda Enter wohereze, Shift+Enter ku murongo mushya)"
+            ></textarea>
+            <div class="composer-footer">
+              <div class="composer-hints">
+                <span>Inyuguti: <span id="charCount">0</span></span>
+                <span style="opacity: 0.6;">Kanda <strong>Enter</strong> wohereze</span>
+              </div>
+              <div class="composer-actions">
+                <button class="btn-send" id="btnSend" disabled>
+                  <span>Ohereza</span> 🚀
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </main>
+
+  </div>
+
+  <!-- Saved Scripts Modal -->
+  <div class="modal-overlay" id="savedModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>⭐ Scripts Zabitswe (Favorites)</h3>
+        <button class="modal-close" id="savedModalClose">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="saved-list" id="savedList">
+          <!-- Saved items rendered here dynamically -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings / Free Hosting Modal -->
+  <div class="modal-overlay" id="settingsModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>⚙️ Igenamiterere (Free Hosting Settings)</h3>
+        <button class="modal-close" id="settingsModalClose">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="form-hint">
+          Iyi app ikoresha <strong>HTML, CSS na JavaScript gusa</strong>! 
+          Niba ushaka kuyishyira kuri <strong>GitHub Pages</strong> cyangwa indi hosting ya static ifunguye ku buntu, ushobora gushyiramo Gemini API Key yawe ikora nta server ikenewe:
+        </p>
+        <div class="form-group">
+          <label for="apiKeyInput">Gemini API Key (Ku buntu kuri aistudio.google.com):</label>
+          <input type="password" id="apiKeyInput" placeholder="AIzaSy...">
+        </div>
+        <p class="form-hint" style="font-size: 0.75rem; color: #10b981;">
+          ✓ Niba uri muri Google AI Studio cyangwa kuri Netlify/Vercel functions, API Key ikorera mu ibanga kuri server nta cyo winjizamo!
+        </p>
+        <button class="btn-send" id="btnSaveSettings" style="align-self: flex-end;">
+          Bika Igenamiterere
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Simple Toast Notification -->
+  <div id="appToast" style="position: fixed; bottom: 24px; right: 24px; background: #1e293b; color: #ffffff; border: 1px solid #475569; padding: 10px 18px; border-radius: 8px; font-size: 0.85rem; box-shadow: 0 10px 25px rgba(0,0,0,0.4); display: none; z-index: 200; transition: opacity 0.3s ease;">
+    Byakozwe neza!
+  </div>
+
+  <!-- Pure Vanilla JavaScript Entry Point (Loads locally, on GitHub Pages, and in production) -->
+  <script src="./app.js"></script>
+</body>
+</html>
